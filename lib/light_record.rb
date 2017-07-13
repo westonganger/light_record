@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'spreadsheet_architect'
+
 module LightRecord
   extend self
 
@@ -14,6 +16,8 @@ module LightRecord
     new_klass = Class.new(klass) do
       self.table_name = klass.table_name
       self.inheritance_column = nil
+      
+      include SpreadsheetArchitect
 
       extend LightRecord::RecordAttributes
 
